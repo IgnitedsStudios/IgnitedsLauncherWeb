@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     startButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Evita que el clic se propague al contenedor del video
       startImage.src = "assets/startG.gif";
-      setTimeout(() => {
+      setTimeout(async() => {
         startImage.src = "assets/startP.png";
-        openMinecraft(eventData.ip, eventData.port);
+        await openMinecraft(eventData.ip, eventData.port);
       }, 400);
     });
 
@@ -137,9 +137,10 @@ async function openMinecraft(serverUrl, serverPort) {
   );
   const status = await response.json().serverStatus;
   const target = isMobile() ? "_blank" : "_self";
-  console.log(target);
+  console.log(status);
   const url = `minecraft://connect?serverUrl=${serverUrl}&serverPort=${serverPort}`;
-  status ? window.open(url, target) : alert('Server not running!');
+  if (status) window.open(url, target);
+  else alert('Server not running!');
 }
 
 function openDownloadPacks(url) {
