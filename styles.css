@@ -64,8 +64,8 @@ html {
 }
 
 #startImage {
-  width: 35%; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 35%; /* Ajusta la altura de la imagen según sea necesario */
+  width: 30%; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 30%; /* Ajusta la altura de la imagen según sea necesario */
   object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
 }
 
