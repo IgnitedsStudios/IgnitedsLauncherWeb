@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           video.play().catch(error => {
             console.error("Error playing video:", error);
           });
-        }, 5000);
+        }, 500);
       } else {
         const img = document.createElement('img');
         img.id = 'backgroundImage';
