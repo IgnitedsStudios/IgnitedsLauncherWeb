@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   function openLink(url) {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const target = isMobile ? "_blank" : "_self";
-    console.log(navigator.userAgent)
+    console.log('Agente: ' + navigator.userAgent)
     window.open(url, target);
   }
   
