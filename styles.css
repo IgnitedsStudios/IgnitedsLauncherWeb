@@ -63,13 +63,16 @@ html {
   justify-content: center;
 }
 
+/* Estilos generales */
 #startImage {
-  width: 30%; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: 30%; /* Ajusta la altura de la imagen según sea necesario */
-  object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+  width: 35%;
+  height: 35%;
+  object-fit: contain;
 }
 
 #downloadButton {
+  min-width: 10%;
+  max-width: 30%;
   padding: 6px 12px;
   background-color: #000;
   color: #fff;
@@ -77,6 +80,33 @@ html {
   border-radius: 6px;
   cursor: pointer;
   font-family: "titles";
+}
+
+/* Media queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+  #startImage {
+    width: 20%; /* Reduce el tamaño en pantallas más pequeñas */
+    height: 20%;
+  }
+
+  #downloadButton {
+    min-width: 20%; /* Ajusta el ancho mínimo */
+    max-width: 40%; /* Ajusta el ancho máximo */
+    padding: 4px 8px; /* Reduce el padding */
+  }
+}
+
+@media (max-width: 480px) {
+  #startImage {
+    width: 40%; /* Reduce aún más el tamaño en pantallas muy pequeñas */
+    height: 40%;
+  }
+
+  #downloadButton {
+    min-width: 30%; /* Ajusta el ancho mínimo */
+    max-width: 50%; /* Ajusta el ancho máximo */
+    padding: 2px 4px; /* Reduce aún más el padding */
+  }
 }
 
 /* CSS para evitar la selección de texto */
