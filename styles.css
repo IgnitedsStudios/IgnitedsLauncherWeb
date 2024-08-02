@@ -1,4 +1,10 @@
 @font-face {
+  font-family: "normal";
+  src: url("https://ignitedsstudios.github.io/IgnitedsLauncher/src/fonts/Mont-HeavyDEMO.otf")
+    format("truetype");
+}
+
+@font-face {
   font-family: "titles";
   src: url("https://ignitedsstudios.github.io/IgnitedsLauncher/src/fonts/titles.ttf")
     format("truetype");
@@ -14,7 +20,6 @@ html {
   justify-content: center;
   align-items: center;
   background-color: #17012b;
-  font-family: "titles", sans-serif;
 }
 
 #container {
@@ -40,6 +45,7 @@ html {
 }
 
 #title {
+  font-family: 'titles';
   font-size: 20px;
   color: #fff;
   margin-left: 10px;
@@ -79,7 +85,7 @@ html {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-family: "titles";
+  font-family: 'normal';
 }
 
 /* Media queries para pantallas más pequeñas */
