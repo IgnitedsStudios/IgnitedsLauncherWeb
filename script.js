@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
       downloadButton.addEventListener("click", () => {
         if (eventData.packs) {
-          window.open(eventData.packs, "_blank");
+          window.open(eventData.packs, "_self");
         } else {
           console.error("URL de los packs no disponible.");
         }
