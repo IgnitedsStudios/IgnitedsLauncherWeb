@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         "https://ignitedsstudios.github.io/IgnitedsLauncher/src/event.json"
       );
       const eventData = await response.json();
+  
       const backgroundContainer = document.getElementById("backgroundContainer");
       const title = document.getElementById("title");
       const startButton = document.getElementById("startButton");
@@ -17,10 +18,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (eventData.backgroundIsVideo) {
         const video = document.createElement('video');
         video.id = 'backgroundVideo';
-        video.autoplay = true;
         video.loop = true;
-        video.muted = false;
-        video.volume = 0.8;  
+        video.volume = 0.5;
         video.style.position = 'absolute';
         video.style.top = '0';
         video.style.left = '0';
@@ -29,6 +28,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         video.style.objectFit = 'cover';
         video.src = eventData.background;
         backgroundContainer.appendChild(video);
+  
+        // Intenta reproducir el video después de 2 segundos
+        setTimeout(() => {
+          video.play().catch(error => {
+            console.error("Error playing video:", error);
+          });
+        }, 2000);
       } else {
         const img = document.createElement('img');
         img.id = 'backgroundImage';
@@ -55,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
       downloadButton.addEventListener("click", () => {
         if (eventData.packs) {
-          window.open(eventData.packs, "_self");
+          openLink(eventData.packs);
         } else {
           console.error("URL de los packs no disponible.");
         }
@@ -71,6 +77,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   function openMinecraft(serverUrl, serverPort) {
     const url = `minecraft://connect?serverUrl=${serverUrl}&serverPort=${serverPort}`;
-    window.open(url, "_blank");
+    window.open(url, "_self");
+  }
+  
+  function openLink(url) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const target = isMobile ? "_blank" : "_self";
+    console.log(navigator.userAgent)
+    window.open(url, target);
   }
   
