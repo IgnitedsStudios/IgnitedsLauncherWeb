@@ -76,14 +76,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   
   function openMinecraft(serverUrl, serverPort) {
+     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const target = isMobile ? "_blank" : "_self"
     const url = `minecraft://connect?serverUrl=${serverUrl}&serverPort=${serverPort}`;
-    window.open(url, "_self");
+    window.open(url, target);
   }
   
   function openLink(url) {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const target = isMobile ? "_blank" : "_self";
-    console.log('Agente: ' + navigator.userAgent)
+    console.log(navigator.userAgent)
     window.open(url, target);
   }
-  
