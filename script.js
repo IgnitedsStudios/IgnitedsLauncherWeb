@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         "https://ignitedsstudios.github.io/IgnitedsLauncher/src/event.json"
       );
       const eventData = await response.json();
-  
       const backgroundContainer = document.getElementById("backgroundContainer");
       const title = document.getElementById("title");
       const startButton = document.getElementById("startButton");
@@ -20,7 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         video.id = 'backgroundVideo';
         video.autoplay = true;
         video.loop = true;
-        video.muted = true;
+        video.muted = false;
+        video.volume = 0.8;  
         video.style.position = 'absolute';
         video.style.top = '0';
         video.style.left = '0';
