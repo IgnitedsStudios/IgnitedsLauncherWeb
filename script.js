@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     startButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Evita que el clic se propague al contenedor del video
       startImage.src = "assets/startG.gif";
-      setTimeout(async() => {
+      setTimeout(async () => {
         startImage.src = "assets/startP.png";
-        await openMinecraft(eventData.ip, eventData.port);
+        await openMinecraft(eventData.ip, eventData.port, eventData.serverStatus);
       }, 400);
     });
 
@@ -79,20 +79,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Actualiza el estado del servidor
     console.log(eventData.serverStatus);
     if (eventData.serverStatus) {
-      statusIcon.src = eventData.serverStatus
-        ? "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_on.png"
-        : "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_off.png";
-
-      // Ajusta el tamaño del icono del estatus
-      statusIcon.style.width = "32px"; // Cambia el tamaño según tus necesidades
-      statusIcon.style.height = "32px"; // Cambia el tamaño según tus necesidades
+      statusIcon.src = "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_on.png";
     } else {
-      statusIcon.src =
-        "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_off.png"; // Ruta por defecto para estado desconocido
-      // Ajusta el tamaño del icono del estatus
-      statusIcon.style.width = "32px"; // Cambia el tamaño según tus necesidades
-      statusIcon.style.height = "32px"; // Cambia el tamaño según tus necesidades
+      statusIcon.src = "https://ignitedsstudios.github.io/IgnitedsLauncherWeb/assets/status_off.png";
     }
+
+    // Ajusta el tamaño del icono del estatus
+    statusIcon.style.width = "32px"; // Cambia el tamaño según tus necesidades
+    statusIcon.style.height = "32px"; // Cambia el tamaño según tus necesidades
 
     // Añade un evento de clic en el documento para pausar o reanudar el video
     document.addEventListener("click", () => {
@@ -131,16 +125,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-async function openMinecraft(serverUrl, serverPort) {
-  const response = await fetch(
-    "https://ignitedsstudios.github.io/IgnitedsLauncher/src/event.json"
-  );
-  const status = await response.json().serverStatus;
+async function openMinecraft(serverUrl, serverPort, serverStatus) {
   const target = isMobile() ? "_blank" : "_self";
-  console.log(status);
+  console.log(serverStatus);
   const url = `minecraft://connect?serverUrl=${serverUrl}&serverPort=${serverPort}`;
-  if (status) window.open(url, target);
-  else alert('Server not running!');
+  if (serverStatus) {
+    window.open(url, target);
+  } else {
+    alert('Server not running!');
+  }
 }
 
 function openDownloadPacks(url) {
