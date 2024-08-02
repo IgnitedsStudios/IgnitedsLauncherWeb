@@ -71,6 +71,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   function openMinecraft(serverUrl, serverPort) {
     const url = `minecraft://connect?serverUrl=${serverUrl}&serverPort=${serverPort}`;
-    window.open(url, "_self");
+    window.open(url, "_blank");
   }
   
