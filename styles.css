@@ -48,7 +48,7 @@ html {
   font-family: 'titles';
   font-size: 20px;
   color: #fff;
-  margin-left: 10px;
+  margin-right: auto; /* Empuja el título a la izquierda */
 }
 
 #content {
@@ -123,21 +123,41 @@ body {
   -ms-user-select: none; /* For Internet Explorer/Edge */
 }
 
-#reloadButton {
+#bottomContainer {
   position: absolute;
   bottom: 20px;
-  left: 20px;
+  left: 20px; /* Alinea el contenedor al lado izquierdo */
+  display: flex;
+  align-items: center;
+}
+
+#reloadButton {
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* Asegura que el botón de recarga esté encima del fondo */
 }
 
 #reloadButton img {
   width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
   height: 30px;
   object-fit: contain;
+}
+
+#status {
+  display: flex;
+  align-items: center;
+  margin-left: 20px; /* Espacio entre el ícono de estado y el botón de recarga */
+}
+
+#statusIcon {
+  width: 40px; /* Ajusta el tamaño del ícono */
+  height: 40px;
+  object-fit: contain;
+}
+
+#backgroundContainer {
+  transition: opacity 0.5s ease-in-out; /* Cambia 0.5s por la duración que prefieras */
 }
