@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "titles";
+  src: url("https://ignitedsstudios.github.io/IgnitedsLauncher/src/fonts/titles.ttf")
+    format("truetype");
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #17012b;
+  font-family: "titles", sans-serif;
+}
+
+#container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#logo {
+  width: 80px;
+  height: 80px;
+}
+
+#title {
+  font-size: 20px;
+  color: #fff;
+  margin-left: 10px;
+}
+
+#content {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#startButton {
+    margin-bottom: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#startImage {
+  width: 35%; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 35%; /* Ajusta la altura de la imagen según sea necesario */
+  object-fit: contain; /* Asegura que la imagen mantenga sus proporciones */
+}
+
+#downloadButton {
+  padding: 6px 12px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "titles";
+}
+
+/* CSS para evitar la selección de texto */
+body {
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* For Chrome, Safari, and Opera */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Internet Explorer/Edge */
+}
+
+#reloadButton {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1; /* Asegura que el botón de recarga esté encima del fondo */
+}
+
+#reloadButton img {
+  width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: 30px;
+  object-fit: contain;
+}
